@@ -7,7 +7,8 @@ const User = mongoose.model('User', {
     name: String,
     role: String,
     password: String,
-    isActive: Boolean
+    is_active: Boolean,
+    updated_at: Date
    
 })
 
