@@ -4,8 +4,8 @@ const Event = mongoose.model('Event', {
     
     //primary key - organizer_id
     organizer_id: Number,
-    name: String,
-    organizer: String,
+    event_name: String,
+    organizer_name: String,
     sponsors: [String]
 })
 module.exports = Event;
