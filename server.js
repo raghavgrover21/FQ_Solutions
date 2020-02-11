@@ -10,6 +10,7 @@ const cors = require("cors");
 const admin = require("./routes/admin");
 const signup = require("./routes/signup");
 const login = require("./routes/login");
+const user = require("./routes/user");
 
 //Initializing express
 const app = express();
@@ -37,7 +38,10 @@ app.post("/", (req, res) => {
 app.use("/admin", admin);
 
 //Signup Route
-app.use("/signup",signup);
+app.use("/signup", signup);
 
-//login Route
-app.use("/login",login);
+//Login Route
+app.use("/login", login);
+
+//User Route
+app.use("/user", user);
