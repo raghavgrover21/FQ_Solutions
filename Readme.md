@@ -7,7 +7,6 @@ flow of the application
     - add a user
     - remove a user
     - add a event
-    - remove a event
 4. user role
     - fetch all the events(i am assuming it to be the front page of the application)
     - fetch all the events the user is interested in kind of a wishlist for events
