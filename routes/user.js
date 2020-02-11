@@ -22,7 +22,6 @@ router.post("/get/allevents", checkToken, async (req, res) => {
       let events = _.map(allEvents, obj => {
         return _.pick(obj, [
           "event_name",
-          "organizer",
           "organizer_name",
           "sponsors"
         ]);
@@ -37,6 +36,7 @@ router.post("/get/allevents", checkToken, async (req, res) => {
   }
 });
 
+//Add event to wishlist
 router.post("/add/event", checkToken, async (req, res) => {
   const userEvents = {
     mobile: req.decoded.mobile,
@@ -54,5 +54,22 @@ router.post("/add/event", checkToken, async (req, res) => {
     console.log(err);
     res.json({ status: false, message: "something went wrong" });
   }
+});
+
+router.post("/my/events", checkToken, async (req, res) => {
+    const mobile = req.decoded.mobile;
+  const myEvents = await UserEvents.find({mobile});
+  if (myEvents.length > 0) {
+    let events = _.map(myEvents, obj => {
+      return _.pick(obj, [
+        "event_name",
+        "organizer_name"
+      ]);
+    });
+    res.json({ status: true, events });
+  } else {
+    res.json({ status: true, message: "no events available as of now" });
+  }
+  
 });
 module.exports = router;
