@@ -7,17 +7,32 @@ const User = require("../models/User");
 
 //Services
 const generateToken = require("../services/generateToken");
+const { validateSignUp } = require("../services/validators");
+const sanitizeError = require("../services/sanitizeValidation");
 
 //Signup
 router.post("/", async (req, res) => {
   //add new user
+
+  //validations
+  const { error } = validateSignUp(req.body);
+  if (error) {
+    let message = error.details[0].message;
+    let invalidType = sanitizeError(message);
+    return res.json({
+      status: false,
+      message: `${invalidType} is invalid`
+    });
+  }
   //Hashing the password before storing
   const hashPassword = bcrypt.hashSync(req.body.password, 10);
   const user = {
-    userName: req.body.username,
+    name: req.body.userName,
     mobile: req.body.mobile,
     role: req.body.role,
-    password: hashPassword
+    password: hashPassword,
+    is_active: req.body.isActive,
+    updated_at: new Date().getTime()
   };
 
   try {
