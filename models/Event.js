@@ -6,6 +6,7 @@ const Event = mongoose.model('Event', {
     organizer_id: Number,
     event_name: String,
     organizer_name: String,
-    sponsors: [String]
+    sponsors: [String],
+    is_active: Boolean
 })
 module.exports = Event;
