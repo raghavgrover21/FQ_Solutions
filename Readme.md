@@ -18,3 +18,7 @@ flow of the application
     - Common json file for common strings such as "something went wrong"(clean and modular code)
     - Could have added dynamic pagination(the page limit and offset could have been dependent on front end requirement/ depending on the device the user is using).
     - Could have added status codes if there are multiple cases of failure in a single API
+    - Could have added single return statement in case of if else ladder case or single point of exit.
+    - Could have created a middleware for validating roles making the code easily changeable for any developer.
+    - Could have added validations for the entire all the remaining API's (added only for login and signup)
+    - Could have written validations on my own logic using regex and basic if else(if needed)
