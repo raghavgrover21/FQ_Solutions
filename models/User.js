@@ -6,7 +6,8 @@ const User = mongoose.model('User', {
     mobile : String,
     name: String,
     role: String,
-    password: String
+    password: String,
+    isActive: Boolean
    
 })
 
