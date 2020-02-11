@@ -15,6 +15,7 @@ const user = require("./routes/user");
 //Initializing express
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
 //connect to mongodb
 mongoose.connect("mongodb://localhost:27017/FQsol", { useNewUrlParser: true });
