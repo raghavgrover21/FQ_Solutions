@@ -38,6 +38,7 @@ router.post("/get/allevents", checkToken, async (req, res) => {
 
 //Add event to wishlist
 router.post("/add/event", checkToken, async (req, res) => {
+  //could have added a db check whether the event actually exist or not
   const userEvents = {
     mobile: req.decoded.mobile,
     event_name: req.body.eventname,

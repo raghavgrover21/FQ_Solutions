@@ -6,9 +6,10 @@ const Joi = require("@hapi/joi");
 const validateSignUp = data => {
   const schema = Joi.object({
     mobile: Joi.string().required(),
-    name: Joi.string().required(),
+    userName: Joi.string().required(),
     role: Joi.string().required(),
-    is_active: Joi.string().required()
+    isActive: Joi.string().required(),
+    password: Joi.string().required()
   }).strict();
   return schema.validate(data);
 };
